@@ -96,10 +96,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # التعديل المصحح للموديل الخاص بالمستخدم
 AUTH_USER_MODEL = 'auth_app.User'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:5173",  # لدعم Vite+React أيضاً
-]
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://localhost:5173",  # لدعم Vite+React أيضاً
+# ]
 
 ALLOWED_HOSTS = ['Zain87878.pythonanywhere.com', '127.0.0.1', 'localhost']
 
