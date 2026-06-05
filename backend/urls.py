@@ -6,7 +6,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-# 2. إعداد واجهة التوثيق لتشمل تفاصيل مشروعك
+# 2. إعداد واجهة التوثيق لتشمل تفاصيل مشروعك مع خانة الحماية والتوكن
 schema_view = get_schema_view(
    openapi.Info(
       title="Real Estate & Prediction API",
@@ -16,8 +16,17 @@ schema_view = get_schema_view(
    ),
    public=True,
    permission_classes=(permissions.AllowAny,),
+   
+   # 🚨 هذا هو الجزء الناقص الذي يظهر خانة الـ Token في السويدجر ⬇️
+   security_definitions={
+       'Bearer': {
+           'type': 'apiKey',
+           'name': 'Authorization',
+           'in': 'header',
+           'description': "اكتب في الخانة: 'Bearer' متبوعة بمسافة ثم التوكن الخاص بك"
+       }
+   },
 )
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     
