@@ -107,3 +107,15 @@ ALLOWED_HOSTS = ['Zain87878.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# إعدادات واجهة السواجر لإظهار زر الحماية والقفل الخاص بالتوكن
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': "اكتب في الخانة: 'Bearer' متبوعة بمسافة ثم التوكن الخاص بك (JWT Token)"
+        }
+    },
+    'USE_SESSION_AUTH': False,  # لإخفاء نموذج تسجيل دخول جانغو التقليدي داخل السواجر
+}
